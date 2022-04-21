@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+}
+
+$green: #16a085;
+$black: #444;
+$light-color: #777;
+$box-shadow: 0.5rem 0.5rem 0 rgba(22, 160, 133, 0.2);
+$text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+$border: 0.2rem solid $green;
+
+/* mixins */
+@mixin flexProps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin gridProps($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin onHover($bg, $color) {
+  background: $bg;
+  color: $color;
+}
+
+@mixin propsRepeated {
+  border: $border;
+  box-shadow: $box-shadow;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border: $border;
+  border-radius: 0.5rem;
+  font-size: 1.7rem;
+  color: $green;
+  margin-top: 1.5rem;
+  span {
+    padding: 0.7rem 1rem;
+    background-color: $green;
+    color: #fff;
+    margin-left: 0.5rem;
+    font-weight: 900;
+    border-radius: 0.5rem;
+  }
+  &:hover {
+    @include onHover($green, #fff);
+  }
+  &:hover span {
+    @include onHover(#fff, $green);
+    margin-left: 1rem;
+  }
+}
+
+.heading {
+  font-size: 4.5rem;
+  color: $black;
+  text-transform: uppercase;
+  text-shadow: $text-shadow;
+  padding-bottom: 2.5rem;
+  text-align: center;
+  span {
+    text-transform: uppercase;
+    color: $green;
+  }
+}

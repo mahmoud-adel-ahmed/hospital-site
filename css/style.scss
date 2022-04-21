@@ -1,0 +1,419 @@
+@use "./globals" as *;
+
+header {
+  background: #fff;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 10%);
+  position: sticky;
+  top: 0;
+  left: 0;
+  @include flexProps();
+  padding: 2rem 9%;
+  z-index: 999;
+  .logo {
+    font-size: 2.5rem;
+    color: $black;
+    i {
+      color: $green;
+    }
+  }
+  .navbar {
+    a {
+      margin-left: 2rem;
+      font-size: 1.7rem;
+      color: $light-color;
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+  #menu-bars {
+    font-size: 2.5rem;
+    color: $green;
+    padding: 1rem 1.5rem;
+    background: #eee;
+    display: none;
+    cursor: pointer;
+  }
+}
+
+.home {
+  background: #f5f5f5;
+  @include flexProps();
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  .image {
+    flex: 1 1 45rem;
+    img {
+      width: 100%;
+    }
+  }
+  .content {
+    flex: 1 1 45rem;
+    h3 {
+      font-size: 4.5rem;
+      text-shadow: $text-shadow;
+      color: $black;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    p {
+      line-height: 2;
+      font-size: 1.8rem;
+      padding: 1rem 0;
+      color: $light-color;
+    }
+  }
+}
+
+.icons-container {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  @include gridProps(20rem);
+  .icons {
+    @include propsRepeated();
+    text-align: center;
+    padding: 2.5rem;
+    span {
+      font-size: 4.5rem;
+      color: $green;
+      padding-bottom: 0.7rem;
+    }
+    h3 {
+      font-size: 4.5rem;
+      color: $black;
+      text-shadow: $text-shadow;
+      padding: 0.5rem 0;
+    }
+    p {
+      font-size: 1.7rem;
+      color: $light-color;
+    }
+  }
+}
+
+.services {
+  background: #f5f5f5;
+  .box-container {
+    @include gridProps(27rem);
+    .box {
+      padding: 2.5rem;
+      @include propsRepeated();
+      border-radius: 0.5rem;
+      background-color: #fff;
+      > span {
+        font-size: 5rem;
+        color: $green;
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        padding: 1rem 0;
+        color: $black;
+        font-size: 2.5rem;
+      }
+      p {
+        color: $light-color;
+        font-size: 1.4rem;
+        line-height: 2;
+      }
+    }
+  }
+}
+
+.about {
+  .about-container {
+    @extend .home;
+    background-color: #fff;
+    @include flexProps();
+    .content {
+      h3 {
+        font-size: 3.9rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.doctors {
+  background: #f5f5f5;
+  .doctors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+    .box {
+      @include propsRepeated();
+      padding: 2rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      img {
+        height: 20rem;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        border: $border;
+      }
+      h3 {
+        color: $black;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      span {
+        display: block;
+        color: $green;
+        font-size: 1.5rem;
+      }
+      .social {
+        padding-top: 2rem;
+        a {
+          height: 5rem;
+          width: 5rem;
+          line-height: 5rem;
+          border: $border;
+          color: $green;
+          font-size: 2rem;
+          margin: 0.3rem;
+          border-radius: 0.5rem;
+          &:hover {
+            @include onHover($green, #fff);
+          }
+        }
+      }
+    }
+  }
+}
+
+.book {
+  .book-container {
+    @include flexProps();
+    justify-content: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    .image {
+      flex: 1 1 45rem;
+      img {
+        width: 100%;
+      }
+    }
+    form {
+      flex: 1 1 45rem;
+      @include propsRepeated();
+      padding: 2rem;
+      border-radius: 0.5rem;
+      h3 {
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        color: $black;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        border: $border;
+        padding: 1.3rem;
+        margin: 1rem 0;
+        font-size: 1.6rem;
+        border-radius: 0.5rem;
+        &::placeholder {
+          color: $light-color;
+        }
+        &.box {
+          color: $black;
+        }
+        &.btn {
+          padding: 1.3rem 3.5rem;
+          background: #fff;
+          box-shadow: $box-shadow;
+          &:hover {
+            @include onHover($green, #fff);
+          }
+        }
+      }
+    }
+  }
+}
+
+.review {
+  background: #f5f5f5;
+  .review-container {
+    @include gridProps(27rem);
+    .box {
+      @include propsRepeated();
+      text-align: center;
+      position: relative;
+      padding: 2.5rem;
+      border-radius: 0.5rem;
+      z-index: 0;
+      overflow: hidden;
+      img {
+        border-radius: 50%;
+        width: 10rem;
+        height: 10rem;
+        border: 0.5rem solid #fff;
+      }
+      h3 {
+        color: #fff;
+        font-size: 2rem;
+        padding: 0.7rem 0;
+      }
+      .stars {
+        i {
+          font-size: 1.5rem;
+          color: #fff;
+        }
+      }
+
+      p {
+        line-height: 2;
+        color: $light-color;
+        font-size: 1.5rem;
+        padding-top: 5rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: -4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120%;
+        height: 25rem;
+        background: $green;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        z-index: -1;
+      }
+    }
+  }
+}
+.blogs {
+  .blogs-container {
+    @include gridProps(30rem);
+    .box {
+      @include propsRepeated();
+      border-radius: 0.5rem;
+      padding: 2rem;
+      overflow: hidden;
+      .image {
+        border-radius: 0.5rem;
+        height: 20rem;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+      .icon {
+        @include flexProps();
+        padding: 1.5rem 0;
+        a {
+          color: $light-color;
+          font-size: 1.4rem;
+          i {
+            color: $green;
+          }
+          &:hover {
+            color: $green;
+          }
+        }
+      }
+      .content {
+        h3 {
+          font-size: 3rem;
+          color: $black;
+          padding-bottom: 1rem;
+        }
+        p {
+          color: $light-color;
+          line-height: 2;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 2rem 9%;
+  background: #f5f5f5;
+  .box-container {
+    @include gridProps(22rem);
+    .box {
+      h3 {
+        color: $black;
+        font-size: 2.5rem;
+        padding: 1rem 0;
+      }
+      a {
+        display: block;
+        font-size: 1.5rem;
+        color: $light-color;
+        padding: 1rem 0;
+        i {
+          color: $green;
+          margin-right: 0.7rem;
+        }
+        &:hover i {
+          padding-right: 2rem;
+        }
+      }
+    }
+  }
+  .credit {
+    margin-top: 2rem;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    p {
+      text-align: center;
+      font-size: 2rem;
+      padding: 1.7rem 0;
+      line-height: 1.8;
+      span {
+        color: $green;
+      }
+    }
+  }
+}
+
+/* media */
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 55%;
+  }
+  section {
+    padding: 2rem;
+  }
+  header {
+    padding: 2rem;
+    .navbar {
+      position: absolute;
+      top: 115%;
+      right: 2rem;
+      border: $border;
+      border-radius: 0.5rem;
+      width: 30rem;
+      background: #fff;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: top right;
+      a {
+        display: block;
+        font-size: 2rem;
+        margin: 2rem;
+      }
+      &.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    #menu-bars {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
